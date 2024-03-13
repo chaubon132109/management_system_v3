@@ -17,7 +17,7 @@ export class AuthService {
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) return null;
     
-        const payload = { username: username, id: user.id, isActive: user.isActive };
+        const payload = { username: username, id: user.id, role: user.role };
         return this.jwtSerVice.sign(payload);
     }
     

@@ -17,6 +17,8 @@ export class User {
 
   @Column({ default: true })
   isActive: boolean;
+  @Column({default : 'user'})
+  role: string;
   @BeforeInsert()
   async hashPassword(): Promise<void> {
     const salt = await bcrypt.genSalt(10);
